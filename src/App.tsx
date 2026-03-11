@@ -25,7 +25,7 @@ function App() {
   useEffect(() => {
     const fetchNotes = async () => {
       try {
-        const response = await fetch('http://localhost:3001/api/notes')
+        const response = await fetch('https://note-backend-production-79a2.up.railway.app/api/notes')
         const data = await response.json()
         setNotes(data.map((note: any) => ({
           ...note,
@@ -54,7 +54,7 @@ function App() {
     if (updatedNote.id) {
       // 更新现有笔记
       try {
-        await fetch(`http://localhost:3001/api/notes/${updatedNote.id}`, {
+        await fetch(`https://note-backend-production-79a2.up.railway.app/api/notes/${updatedNote.id}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json'
@@ -73,7 +73,7 @@ function App() {
     // 如果当前笔记有内容但没有 ID，先保存当前笔记
     if (currentNote.content && !currentNote.id) {
       try {
-        const response = await fetch('http://localhost:3001/api/notes', {
+        const response = await fetch('https://note-backend-production-79a2.up.railway.app/api/notes', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -103,7 +103,7 @@ function App() {
     }
     
     try {
-      const response = await fetch('http://localhost:3001/api/notes', {
+      const response = await fetch('https://note-backend-production-79a2.up.railway.app/api/notes', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
